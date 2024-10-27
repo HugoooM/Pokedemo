@@ -1,0 +1,40 @@
+<div *ngIf="pokeStats">
+  <fieldset id="cadre">
+    <legend>PokéStats : {{ pokeStats.name | titlecase }}</legend>
+    <div class="row">
+      <div class="column">
+        <img [src]="pokeStats.sprites.front_default" alt="{{ pokeStats.name }} image" id="image">
+
+        <div class="pokemon-types">
+          <p *ngFor="let type of pokeStats.types"
+             [ngStyle]="{'background-color': getTypeColor(type.type.name), 'color': 'white', 'padding': '5px', 'border-radius': '5px', 'display': 'inline-block', 'margin': '5px 0'}">
+            {{ type.type.name }}
+          </p>
+        </div>
+      </div>
+
+      <div class="column">
+        <p><strong>ID:</strong> {{ pokeStats.id }}</p>
+        <p><strong>Base Experience:</strong> {{ pokeStats.base_experience }}</p>
+        <p><strong>Height:</strong> {{ pokeStats.height }}</p>
+        <p><strong>Weight:</strong> {{ pokeStats.weight }}</p>
+
+      </div>
+      <div class="column">
+        <h5>Abilities:</h5>
+        <p *ngFor="let ability of pokeStats.abilities">
+          {{ ability.ability.name }}
+        </p>
+
+      </div>
+      <div class="column">
+
+        <h5>Stats:</h5>
+        <p *ngFor="let stat of pokeStats.stats">
+          {{ stat.stat.name }}: {{ stat.base_stat }}
+        </p>
+
+      </div>
+    </div>
+  </fieldset>
+</div>

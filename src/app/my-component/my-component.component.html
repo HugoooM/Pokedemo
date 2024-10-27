@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="left-column">
+    <mat-form-field>
+      <input matInput [(ngModel)]="searchValue" placeholder="Filtre">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedPokemonNumber" id="selectPokemon">
+        <mat-option *ngFor="let pokemon of pokemons | filterPokemonPipe:'name':searchValue" [value]="pokemon.number">
+          {{ pokemon.name }} #{{ pokemon.number }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <button mat-stroked-button id="go" (click)="go(-1)">Go !</button>
+
+    <app-pokestats id="pokestats" [pokeStats]="pokeStats"></app-pokestats>
+  </div>
+
+  <div class="right-column">
+    <table>
+      <tbody>
+      <tr *ngFor="let row of paginatedPokemons">
+        <td *ngFor="let pokemon of row">
+          <img (click)="go(pokemon.number)" [src]="pokemon.stats.sprites.front_default" alt="{{ pokemon.name }} image" class="pokedex-images">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p-button (click)="prevPage()"  [disabled]="currentPage === 0" label="Précédent" severity="secondary" class="w-full" styleClass="w-full"></p-button>
+<p-button (click)="nextPage()" [disabled]="currentPage >= (pokemons.length / pageSize) - 1" label="Suivant" severity="secondary" class="w-full" styleClass="w-full"></p-button>
+

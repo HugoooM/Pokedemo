@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
 
+This project is a web-based Pokédex that allows users to view, search, 
+and filter Pokémon. Pokémon data is fetched from the PokeAPI, providing a 
+comprehensive source for Pokémon information.
+
+# Features
+- Main Page: Displays a list of Pokémon with images and names.
+- Search and Filter: A search bar and filter on the left side 
+enable users to easily find specific Pokémon by name or other attributes.
+- Detailed Stats: Clicking on a Pokémon or searching for one 
+displays its detailed stats, including abilities, base stats, and type.
+
+### API Used : PokeAPI
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
