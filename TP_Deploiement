@@ -1,0 +1,12 @@
+# TP Déploiement
+
+Une machine virtuelle a donc été créée via le service de VM de l'université.
+
+L'accès aux ports 80 et 443 est ouvert depuis l'extérieur.
+En revanche, l'accès au port 22 (ssh) est ouvert à travers le VPN.
+
+Le serveur Nginx a été configuré ainsi que ufw et fail2ban.
+
+Le projet Pokedemo est déployé sur cette VM accessible [ici](http://tpwebmontiege.istic.univ-rennes1.fr/).
+
+> Hugo Montiège
